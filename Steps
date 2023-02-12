@@ -1,0 +1,23 @@
+jstatd Configuration :
+======================
+a. Create a policy file in $JAVA_HOME/bin/jstatd.all.policy
+b. Add grant in it
+   grant {
+   permission java.security.AllPermission;
+   };
+c. Start jstatd
+./jstatd -J-Djava.security.policy=jstatd.all.policy &
+
+#####################################################################
+
+JMX Configuration :
+===================
+
+Add below JAVA Flags in the startup :
+-------------------------------------
+-Dcom.sun.management.jmxremote 
+-Dcom.sun.management.jmxremote.port=1089 
+-Dcom.sun.management.jmxremote.ssl=false 
+-Dcom.sun.management.jmxremote.authenticate=false
+
+#####################################################################
